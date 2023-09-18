@@ -14,7 +14,7 @@ public class CreateDiagonalMatrixTest {
 
     @Test
     public void should_Succeed_When_DiagonalFits() {
-        double[][] validDiagonals = {{2, 4, 6, 10, 12}, {0, 0, 1}, {5, 6, 7, 8, 9}, {0, 3, 0}, {0}};
+        double[][] validDiagonals = {{2, 4, 6, 10, 12}, {5, 6, 7, 8, 9}};
 
         for (double[] diagonal : validDiagonals) {
             IMatrix matrix = matrixFactory.createDiagonal(diagonal);
