@@ -8,30 +8,59 @@ public class Matrix implements IMatrix {
         this.rawArray = rawArray;
     }
 
-    /**
-     * TODO: Implement
-     */
     @Override
     public IMatrix times(IMatrix matrix) {
-        return null;
+        if (matrix == null)
+            throw new IllegalArgumentException();
+
+        if (getColumns() != matrix.getRows())
+            throw new IllegalArgumentException();
+
+        double[][] data = new double[getRows()][matrix.getColumns()];
+
+        for (int i = 0; i < getRows(); i++) {
+            for (int j = 0; j < matrix.getColumns(); j++) {
+                for (int k = 0; k < getColumns(); k++) {
+                    data[i][j] += get(i, k) * matrix.get(k, j);
+                }
+            }
+        }
+
+        return new Matrix(data);
     }
 
-    /**
-     * TODO: Implement
-     */
     @Override
     public IMatrix times(Number scalar) {
-        return null;
+        if (scalar == null)
+            throw new IllegalArgumentException();
+
+        double[][] data = new double[getRows()][getColumns()];
+
+        for (int i = 0; i < getRows(); i++) {
+            for (int j = 0; j < getColumns(); j++)
+                data[i][j] = get(i, j) * scalar.doubleValue();
+        }
+
+        return new Matrix(data);
     }
 
-    /**
-     * TODO: Implement
-     */
     @Override
     public IMatrix add(IMatrix matrix) {
-        return null;
-    }
+        if (matrix == null)
+            throw new IllegalArgumentException();
 
+        if (getRows() != matrix.getRows() || getColumns() != matrix.getColumns())
+            throw new IllegalArgumentException();
+
+        double[][] data = new double[getRows()][getColumns()];
+
+        for (int i = 0; i < getRows(); i++) {
+            for (int j = 0; j < getColumns(); j++)
+                data[i][j] = get(i, j) + matrix.get(i, j);
+        }
+
+        return new Matrix(data);
+    }
     /**
      * TODO: Implement
      */
@@ -39,7 +68,6 @@ public class Matrix implements IMatrix {
     public IMatrix transpose() {
         return null;
     }
-
     /**
      * TODO: Implement
      */
@@ -64,9 +92,7 @@ public class Matrix implements IMatrix {
         return false;
     }
 
-    /**
-     * TODO: Implement
-     */
+
     @Override
     public Number getTrace() {
         return null;
@@ -87,7 +113,7 @@ public class Matrix implements IMatrix {
 
     @Override
     public double get(int n, int m) {
-        if(n >= getRows() || n < 0 || m >= getColumns() || m < 0)
+        if (n >= getRows() || n < 0 || m >= getColumns() || m < 0)
             throw new IllegalArgumentException();
 
         return rawArray[n][m];
