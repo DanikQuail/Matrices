@@ -61,13 +61,19 @@ public class Matrix implements IMatrix {
 
         return new Matrix(data);
     }
-    /**
-     * TODO: Implement
-     */
+
     @Override
     public IMatrix transpose() {
-        return null;
+        double[][] data = new double[getColumns()][getRows()];
+
+        for (int i = 0; i < getColumns(); i++) {
+            for (int j = 0; j < getRows(); j++)
+                data[i][j] = get(j, i);
+        }
+
+        return new Matrix(data);
     }
+
     /**
      * TODO: Implement
      */

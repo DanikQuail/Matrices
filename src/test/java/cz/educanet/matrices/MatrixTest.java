@@ -64,7 +64,7 @@ class MatrixTest {
     }
 
     @Test
-    public void test_Add(){
+    public void test_Add() {
         IMatrix testMatrix = MatrixFactory.instance.create(new double[][]{
                 {1, 2, 3},
                 {4, 5, 6}
@@ -88,5 +88,28 @@ class MatrixTest {
             }
         }
     }
+
+    @Test
+    public void transpose_Test() {
+        IMatrix testMatrix = MatrixFactory.instance.create(new double[][]{
+                {1, 5, 4},
+                {8, 4, 1},
+                {7, 2, 1}
+        });
+        IMatrix expectedResult = MatrixFactory.instance.create(new double[][]{
+                {1, 8, 7},
+                {5, 4, 2},
+                {4, 1, 1}
+        });
+
+        IMatrix result = testMatrix.transpose();
+
+        for (int i = 0; i < result.getRows(); i++) {
+            for (int j = 0; j < result.getColumns(); j++) {
+                Assertions.assertEquals(expectedResult.get(i, j), result.get(i, j));
+            }
+        }
+    }
+
 
 }
