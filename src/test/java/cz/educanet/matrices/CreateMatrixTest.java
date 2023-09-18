@@ -17,8 +17,12 @@ class CreateMatrixTest {
 
     @Test
     public void should_Succeed_When_NumbersFits() {
-        double[][][] matrixDataTest = {{{6, 7, 8, 9, 5}}, {{0, 2, 3, 0, 7}}, {{1, 2, 3, 4, 5}}};
-        for (double[][] data : matrixDataTest) {
+        double[][][] testMatrix = {
+                {{6, 7, 8, 9, 5}},
+                {{0, 2, 3, 0, 7}},
+                {{1, 2, 3, 4, 5}}};
+
+        for (double[][] data : testMatrix) {
             IMatrix matrix = matrixFactory.create(data);
             assertMatrix((Matrix) matrix, data);
         }
@@ -26,8 +30,12 @@ class CreateMatrixTest {
 
     @Test
     public void should_Succeed_When_SizeFits() {
-        double[][][] matrixDataTest = {{{6, 7, 8, 9, 5}}, {{0, 2, 3, 0, 7}}, {{1, 2, 3, 4, 5}}};
-        for (double[][] data : matrixDataTest) {
+        double[][][] testMatrix = {
+                {{6, 7, 8, 9, 5}},
+                {{0, 2, 3, 0, 7}},
+                {{1, 2, 3, 4, 5}}};
+
+        for (double[][] data : testMatrix) {
             IMatrix matrix = matrixFactory.create(data);
             Assertions.assertEquals(data.length, matrix.getRows());
             Assertions.assertEquals(data[0].length, matrix.getColumns());

@@ -14,9 +14,11 @@ public class CreateDiagonalMatrixTest {
 
     @Test
     public void should_Succeed_When_DiagonalFits() {
-        double[][] validDiagonals = {{2, 4, 6, 10, 12}, {5, 6, 7, 8, 9}};
+        double[][] testMatrix = {
+                {2, 4, 6, 10, 12},
+                {5, 6, 7, 8, 9}};
 
-        for (double[] diagonal : validDiagonals) {
+        for (double[] diagonal : testMatrix) {
             IMatrix matrix = matrixFactory.createDiagonal(diagonal);
             assertMatrix(matrix, diagonal);
         }
