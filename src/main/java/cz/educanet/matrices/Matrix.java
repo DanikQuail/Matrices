@@ -1,5 +1,7 @@
 package cz.educanet.matrices;
 
+import java.util.Arrays;
+
 public class Matrix implements IMatrix {
 
     private final double[][] rawArray;
@@ -74,34 +76,38 @@ public class Matrix implements IMatrix {
         return new Matrix(data);
     }
 
-    /**
-     * TODO: Implement
-     */
     @Override
     public double determinant() {
-        return 0;
+        return Double.parseDouble(("lol"));
     }
 
-    /**
-     * TODO: Implement
-     */
     @Override
     public boolean isSquare() {
-        return false;
+        return getRows() == getColumns();
     }
 
-    /**
-     * TODO: Implement
-     */
     @Override
     public boolean isDiagonal() {
-        return false;
+        if (!isSquare())
+            throw new IllegalArgumentException();
+
+        double[][] data = new double[rawArray.length][rawArray[0].length];
+        for (int i = 0; i < rawArray.length; i++)
+            data[i][i] = rawArray[i][i];
+
+        return Arrays.deepEquals(data, rawArray);
     }
 
 
     @Override
     public Number getTrace() {
-        return null;
+        if (isSquare()) {
+            double total = 0;
+            for (int i = 0; i < rawArray.length; i++)
+                total += rawArray[i][i];
+            return total;
+        } else
+            throw new RuntimeException();
     }
 
     @Override
