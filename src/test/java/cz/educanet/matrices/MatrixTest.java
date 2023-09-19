@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MatrixTest {
 
     @Test
-    public void test_Times() {
+    public void Should_Return_Multiplied_MatrixByAnotherMatrix() {
         IMatrix testMatrix = MatrixFactory.instance.create(new double[][]{
                 {1, 2, 3},
                 {4, 5, 6}
@@ -38,7 +38,7 @@ class MatrixTest {
     }
 
     @Test
-    public void test_Times_Scalar() {
+    public void Should_Return_Multiplied_MatrixByScalar() {
         IMatrix testMatrix = MatrixFactory.instance.create(new double[][]{
                 {12, 4, 17},
                 {4, 8, 9}
@@ -62,7 +62,7 @@ class MatrixTest {
     }
 
     @Test
-    public void test_Add() {
+    public void Should_Return_AddedUp_Matrix() {
         IMatrix testMatrix = MatrixFactory.instance.create(new double[][]{
                 {1, 2, 3},
                 {4, 5, 6}
@@ -88,7 +88,7 @@ class MatrixTest {
     }
 
     @Test
-    public void transpose_Test() {
+    public void Should_Return_Transposed_Matrix() {
         IMatrix testMatrix = MatrixFactory.instance.create(new double[][]{
                 {1, 5, 4},
                 {8, 4, 1},
@@ -110,7 +110,7 @@ class MatrixTest {
     }
 
     @Test
-    public void isSquare_Test_True() {
+    public void Should_Return_True_When_Matrix_isSquare() {
         IMatrix testMatrix = MatrixFactory.instance.create(new double[][]{
                 {0, 0, 0},
                 {0, 0, 0},
@@ -121,7 +121,7 @@ class MatrixTest {
     }
 
     @Test
-    public void isSquare_Test_False() {
+    public void Should_Return_False_When_Matrix_is_notSquare() {
         IMatrix testMatrix = MatrixFactory.instance.create(new double[][]{
                 {0, 0, 0, 0},
                 {0, 0, 0, 0},
@@ -132,7 +132,7 @@ class MatrixTest {
     }
 
     @Test
-    public void isDiagonal_Test_True() {
+    public void Should_Return_True_When_Matrix_isDiagonal() {
         IMatrix testMatrix = MatrixFactory.instance.create(new double[][]{
                 {1, 0, 0},
                 {0, 1, 0},
@@ -143,7 +143,7 @@ class MatrixTest {
     }
 
     @Test
-    public void isDiagonal_Test_False() {
+    public void Should_Return_False_When_Matrix_is_notDiagonal() {
         IMatrix testMatrix = MatrixFactory.instance.create(new double[][]{
                 {1, 0, 0},
                 {0, 1, 0},
@@ -154,7 +154,7 @@ class MatrixTest {
     }
 
     @Test
-    public void isDiagonal_Test_ThrowsException() {
+    public void Should_Throw_Exception_When_DiagonalMatrix_is_notSquare() {
         IMatrix testMatrix = MatrixFactory.instance.create(new double[][]{
                 {0, 0, 0, 0},
                 {0, 0, 0, 0},
@@ -165,7 +165,7 @@ class MatrixTest {
     }
 
     @Test
-    public void trace_Test() {
+    public void Should_Return_Traced_Matrix() {
         IMatrix testMatrix = MatrixFactory.instance.create(new double[][]{
                 {5, 8, 2},
                 {31, 56, 4},
@@ -180,7 +180,7 @@ class MatrixTest {
     }
 
     @Test
-    public void trace_Test_ThrowsException() {
+    public void Should_Throw_Exception_When_TracedMatrix_is_notSquare() {
         IMatrix testMatrix = MatrixFactory.instance.create(new double[][]{
                 {5, 8, 2, 4},
                 {31, 56, 4, 3},
@@ -192,7 +192,7 @@ class MatrixTest {
     }
 
     @Test
-    public void rows_Test() {
+    public void Should_Return_Sum_Of_Rows() {
         IMatrix testMatrix = MatrixFactory.instance.create(new double[][]{
                 {1, 0, 0},
                 {0, 1, 0},
@@ -208,7 +208,7 @@ class MatrixTest {
     }
 
     @Test
-    public void columns_Test(){
+    public void Should_Return_Sum_Of_Columns(){
         IMatrix testMatrix = MatrixFactory.instance.create(new double[][]{
                 {1, 0, 0, 0},
                 {0, 1, 0, 0},
@@ -223,7 +223,7 @@ class MatrixTest {
     }
 
     @Test
-    public void get_Test(){
+    public void Should_Return_Value_Of_Coordinates(){
         IMatrix testMatrix = MatrixFactory.instance.create(new double[][]{
                 {1, 0, 0, 0},
                 {0, 1, 0, 0},
