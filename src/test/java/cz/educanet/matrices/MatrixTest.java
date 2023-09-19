@@ -192,7 +192,7 @@ class MatrixTest {
     }
 
     @Test
-    public void Should_Return_Sum_Of_Rows() {
+    public void Should_Return_Number_Of_Rows() {
         IMatrix testMatrix = MatrixFactory.instance.create(new double[][]{
                 {1, 0, 0},
                 {0, 1, 0},
@@ -208,7 +208,7 @@ class MatrixTest {
     }
 
     @Test
-    public void Should_Return_Sum_Of_Columns(){
+    public void Should_Return_Number_Of_Columns(){
         IMatrix testMatrix = MatrixFactory.instance.create(new double[][]{
                 {1, 0, 0, 0},
                 {0, 1, 0, 0},
